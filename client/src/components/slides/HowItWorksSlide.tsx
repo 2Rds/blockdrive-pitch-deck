@@ -71,22 +71,12 @@ const colorClasses = {
 
 export default function HowItWorksSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12 relative overflow-hidden">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: 'url(/images/blockchain-security-abstract.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-6xl w-full relative z-10"
+        className="max-w-6xl w-full"
       >
         {/* Section label */}
         <motion.p variants={itemVariants} className="section-label mb-4">

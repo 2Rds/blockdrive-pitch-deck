@@ -40,7 +40,7 @@ const milestones = [
 
 export default function AskSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12 overflow-y-auto">
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -48,32 +48,32 @@ export default function AskSlide() {
         className="max-w-5xl w-full"
       >
         {/* Section label */}
-        <motion.p variants={itemVariants} className="section-label mb-4 text-center">
+        <motion.p variants={itemVariants} className="section-label mb-2 text-center">
           The Ask
         </motion.p>
 
         {/* Headline */}
-        <motion.h2 variants={itemVariants} className="hero-title text-white mb-2 text-center">
+        <motion.h2 variants={itemVariants} className="slide-title text-white mb-1 text-center">
           Raising <span className="text-cyan-400">$2M</span>
         </motion.h2>
 
         {/* Subheadline */}
-        <motion.p variants={itemVariants} className="text-xl text-slate-400 mb-10 text-center">
+        <motion.p variants={itemVariants} className="text-lg text-slate-400 mb-6 text-center">
           Seed Round • $12M Post-Money SAFE
         </motion.p>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-10">
+        <div className="grid lg:grid-cols-2 gap-4 mb-6">
           {/* Use of funds */}
-          <motion.div variants={itemVariants} className="glass-card p-6">
-            <h3 className="text-sm text-slate-500 uppercase tracking-wide mb-4">Use of Funds</h3>
-            <div className="space-y-4">
+          <motion.div variants={itemVariants} className="glass-card p-4">
+            <h3 className="text-xs text-slate-500 uppercase tracking-wide mb-3">Use of Funds</h3>
+            <div className="space-y-2">
               {useOfFunds.map((item, i) => (
                 <div key={i}>
-                  <div className="flex justify-between text-sm mb-1">
+                  <div className="flex justify-between text-xs mb-1">
                     <span className="text-slate-300">{item.category}</span>
                     <span className="text-white font-medium">{item.percentage}%</span>
                   </div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${item.percentage}%` }}
@@ -84,36 +84,36 @@ export default function AskSlide() {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-slate-500 mt-4">
-              Runway: ~24 months at planned burn rate
+            <p className="text-xs text-slate-500 mt-2">
+              ~24 months runway at planned burn
             </p>
           </motion.div>
 
           {/* Milestones */}
-          <motion.div variants={itemVariants} className="glass-card p-6">
-            <h3 className="text-sm text-slate-500 uppercase tracking-wide mb-4">Milestones</h3>
-            <div className="space-y-4">
+          <motion.div variants={itemVariants} className="glass-card p-4">
+            <h3 className="text-xs text-slate-500 uppercase tracking-wide mb-3">Milestones</h3>
+            <div className="space-y-3">
               {milestones.map((milestone, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
+                <div key={i} className="flex items-start gap-3">
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                     i === 0 ? 'bg-cyan-500/20' : i === 1 ? 'bg-blue-500/20' : 'bg-green-500/20'
                   }`}>
-                    <milestone.icon className={`w-5 h-5 ${
+                    <milestone.icon className={`w-4 h-4 ${
                       i === 0 ? 'text-cyan-400' : i === 1 ? 'text-blue-400' : 'text-green-400'
                     }`} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className={`text-xs font-bold px-2 py-0.5 rounded ${
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
                         i === 0 ? 'bg-cyan-500/20 text-cyan-400' : 
                         i === 1 ? 'bg-blue-500/20 text-blue-400' : 
                         'bg-green-500/20 text-green-400'
                       }`}>
                         {milestone.year}
                       </span>
-                      <span className="text-white font-medium">{milestone.title}</span>
+                      <span className="text-white text-sm font-medium">{milestone.title}</span>
                     </div>
-                    <p className="text-sm text-slate-400 mt-1">{milestone.target}</p>
+                    <p className="text-xs text-slate-400 mt-0.5">{milestone.target}</p>
                   </div>
                 </div>
               ))}
@@ -122,11 +122,9 @@ export default function AskSlide() {
         </div>
 
         {/* Thesis callback */}
-        <motion.div variants={itemVariants} className="text-center mb-6">
-          <p className="text-slate-400 italic">
-            For 30 years, security meant keeping attackers out.
-            <br />
-            We're building something different.
+        <motion.div variants={itemVariants} className="text-center mb-4">
+          <p className="text-slate-400 text-sm italic">
+            For 30 years, security meant keeping attackers out. We're building something different.
           </p>
         </motion.div>
 

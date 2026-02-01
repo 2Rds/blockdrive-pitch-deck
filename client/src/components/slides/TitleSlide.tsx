@@ -63,7 +63,7 @@ export default function TitleSlide() {
           variants={itemVariants}
           className="text-xl md:text-2xl text-slate-300 mb-4 font-medium"
         >
-          Enterprise Cloud Storage for the New Internet
+          Cloud Storage for the New Internet
         </motion.p>
 
         {/* Subtext */}

@@ -53,7 +53,7 @@ const team = [
 
 export default function TeamSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12">
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -61,17 +61,17 @@ export default function TeamSlide() {
         className="max-w-5xl w-full"
       >
         {/* Section label */}
-        <motion.p variants={itemVariants} className="section-label mb-4">
+        <motion.p variants={itemVariants} className="section-label mb-2">
           The Team
         </motion.p>
 
         {/* Headline */}
-        <motion.h2 variants={itemVariants} className="slide-title text-white mb-3">
+        <motion.h2 variants={itemVariants} className="slide-title text-white mb-2">
           Built by Experts
         </motion.h2>
 
         {/* Subheadline */}
-        <motion.p variants={itemVariants} className="text-lg text-slate-400 mb-10">
+        <motion.p variants={itemVariants} className="text-sm text-slate-400 mb-6">
           Co-founders bring complementary strengths in GTM execution and cryptographic engineering.
         </motion.p>
 
@@ -86,14 +86,27 @@ export default function TeamSlide() {
                 member.color === 'cyan' ? 'border-cyan-500/20' : 'border-blue-500/20'
               }`}
             >
-              {/* Avatar placeholder */}
+              {/* Avatar */}
               <div className="flex items-start gap-4 mb-6">
-                <div className={`w-20 h-20 rounded-xl ${
+                <div className={`w-20 h-20 rounded-xl overflow-hidden ${
                   member.color === 'cyan' ? 'bg-cyan-500/20' : 'bg-blue-500/20'
-                } flex items-center justify-center text-2xl font-bold ${
-                  member.color === 'cyan' ? 'text-cyan-400' : 'text-blue-400'
-                }`}>
-                  {member.name.split(' ').map(n => n[0]).join('')}
+                } flex items-center justify-center`}>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to initials if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<span class="text-2xl font-bold ${
+                          member.color === 'cyan' ? 'text-cyan-400' : 'text-blue-400'
+                        }">${member.name.split(' ').map(n => n[0]).join('')}</span>`;
+                      }
+                    }}
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">{member.name}</h3>

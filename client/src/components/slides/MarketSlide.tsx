@@ -54,7 +54,7 @@ const whyNow = [
 
 export default function MarketSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12">
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -62,19 +62,19 @@ export default function MarketSlide() {
         className="max-w-6xl w-full"
       >
         {/* Section label */}
-        <motion.p variants={itemVariants} className="section-label mb-4">
+        <motion.p variants={itemVariants} className="section-label mb-2">
           Market Opportunity
         </motion.p>
 
         {/* Headline */}
-        <motion.h2 variants={itemVariants} className="slide-title text-white mb-10">
+        <motion.h2 variants={itemVariants} className="slide-title text-white mb-6">
           Privacy-Sensitive Cloud Storage
         </motion.h2>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 items-center">
           {/* Market visualization image */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <div className="glass-card p-4 max-w-sm">
+            <div className="glass-card p-3 max-w-xs">
               <img 
                 src="/images/market-growth-abstract.png" 
                 alt="TAM SAM SOM Market Visualization"
@@ -84,22 +84,22 @@ export default function MarketSlide() {
           </motion.div>
 
           {/* Market breakdown */}
-          <motion.div variants={itemVariants} className="space-y-4">
+          <motion.div variants={itemVariants} className="space-y-3">
             {marketSegments.map((segment, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className={`glass-card p-4 ${i === 2 ? 'border-cyan-500/30' : ''}`}
+                className={`glass-card p-3 ${i === 2 ? 'border-cyan-500/30' : ''}`}
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-1">
                   <span className={`text-sm font-bold ${segment.color}`}>
                     {segment.label}
                   </span>
-                  <span className="text-xl font-bold text-white">{segment.value}</span>
+                  <span className="text-lg font-bold text-white">{segment.value}</span>
                 </div>
-                <p className="text-sm text-slate-400">{segment.description}</p>
+                <p className="text-xs text-slate-400">{segment.description}</p>
                 {i === 2 && (
-                  <span className="inline-block mt-2 text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded">
+                  <span className="inline-block mt-1 text-xs bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded">
                     25-30% CAGR
                   </span>
                 )}
@@ -109,21 +109,21 @@ export default function MarketSlide() {
         </div>
 
         {/* Why Now */}
-        <motion.div variants={itemVariants} className="mt-10">
-          <h3 className="text-sm text-slate-500 uppercase tracking-wide mb-4">Why Now</h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.div variants={itemVariants} className="mt-6">
+          <h3 className="text-xs text-slate-500 uppercase tracking-wide mb-3">Why Now</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {whyNow.map((item, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="glass-card p-4 flex items-start gap-3"
+                className="glass-card p-3 flex items-start gap-2"
               >
-                <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
-                  <item.icon className="w-4 h-4 text-cyan-400" />
+                <div className="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
+                  <item.icon className="w-3.5 h-3.5 text-cyan-400" />
                 </div>
                 <div>
-                  <span className="text-lg font-bold text-white">{item.stat}</span>
-                  <p className="text-xs text-slate-400 mt-1">{item.text}</p>
+                  <span className="text-sm font-bold text-white">{item.stat}</span>
+                  <p className="text-[10px] text-slate-400 mt-0.5">{item.text}</p>
                 </div>
               </motion.div>
             ))}

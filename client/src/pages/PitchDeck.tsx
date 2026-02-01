@@ -18,13 +18,14 @@ import ThesisSlide from '@/components/slides/ThesisSlide';
 import SolutionSlide from '@/components/slides/SolutionSlide';
 import HowItWorksSlide from '@/components/slides/HowItWorksSlide';
 import TractionSlide from '@/components/slides/TractionSlide';
+import DemoSlide from '@/components/slides/DemoSlide';
 import BusinessModelSlide from '@/components/slides/BusinessModelSlide';
 import MarketSlide from '@/components/slides/MarketSlide';
 import CompetitionSlide from '@/components/slides/CompetitionSlide';
 import TeamSlide from '@/components/slides/TeamSlide';
 import AskSlide from '@/components/slides/AskSlide';
 
-const TOTAL_SLIDES = 11;
+const TOTAL_SLIDES = 12;
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -118,6 +119,7 @@ export default function PitchDeck() {
     <SolutionSlide key="solution" />,
     <HowItWorksSlide key="how" />,
     <TractionSlide key="traction" />,
+    <DemoSlide key="demo" />,
     <BusinessModelSlide key="model" />,
     <MarketSlide key="market" />,
     <CompetitionSlide key="competition" />,
@@ -126,7 +128,7 @@ export default function PitchDeck() {
   ];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#0a0a0f]">
+    <div className="relative w-screen h-screen overflow-x-hidden bg-[#0a0a0f]">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(59,130,246,0.03)_0%,_transparent_50%)]" />
@@ -141,7 +143,7 @@ export default function PitchDeck() {
           animate="center"
           exit="exit"
           transition={{ duration: 0.4, ease: 'easeOut' as const }}
-          className="w-full h-full"
+          className="w-full h-full overflow-y-auto"
         >
           {slides[currentSlide]}
         </motion.div>
@@ -194,10 +196,6 @@ export default function PitchDeck() {
         {currentSlide + 1} / {TOTAL_SLIDES}
       </div>
 
-      {/* Keyboard hint (hidden on mobile) */}
-      <div className="absolute bottom-6 left-6 text-white/20 text-xs hidden md:block z-10">
-        Use arrow keys or swipe to navigate
-      </div>
     </div>
   );
 }

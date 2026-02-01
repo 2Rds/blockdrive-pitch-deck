@@ -48,7 +48,7 @@ const renderValue = (value: boolean | string, isBlockDrive: boolean = false) => 
 
 export default function CompetitionSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12 overflow-x-auto">
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -56,18 +56,18 @@ export default function CompetitionSlide() {
         className="max-w-6xl w-full"
       >
         {/* Section label */}
-        <motion.p variants={itemVariants} className="section-label mb-4">
+        <motion.p variants={itemVariants} className="section-label mb-2">
           Competitive Landscape
         </motion.p>
 
         {/* Headline */}
-        <motion.h2 variants={itemVariants} className="slide-title text-white mb-3">
+        <motion.h2 variants={itemVariants} className="slide-title text-white mb-2">
           They're Playing the Old Game
         </motion.h2>
 
         {/* Subheadline */}
-        <motion.p variants={itemVariants} className="text-lg text-slate-400 mb-8">
-          Every competitor is still trying to "keep attackers out." We're the only ones who made breaches irrelevant.
+        <motion.p variants={itemVariants} className="text-sm text-slate-400 mb-4">
+          Every competitor is still trying to "keep attackers out." We made breaches irrelevant.
         </motion.p>
 
         {/* Comparison matrix */}

@@ -35,7 +35,7 @@ const claims = [
 
 export default function SolutionSlide() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-12 overflow-y-auto">
+    <div className="w-full min-h-full flex items-start justify-center p-4 md:p-6 pt-8 md:pt-12 pb-20 overflow-auto">
       <motion.div
         variants={containerVariants}
         initial="hidden"
