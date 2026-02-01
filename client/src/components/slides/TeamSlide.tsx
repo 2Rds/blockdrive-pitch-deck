@@ -1,6 +1,6 @@
 /*
  * Slide 10: Team
- * Sean Weiss (CEO) + Roberto Cinque (CTO)
+ * Sean Weiss (Founder & CEO) + Roberto Cinque (Head of Engineering)
  * Design: Two cards with headshots, clean layout
  */
 
@@ -27,7 +27,7 @@ const itemVariants = {
 const team = [
   {
     name: 'Sean Weiss',
-    role: 'Co-Founder & CEO',
+    role: 'Founder & CEO',
     image: '/images/sean-weiss.jpg',
     highlights: [
       { icon: Users, text: '3x Founder with elite institutional network' },
@@ -39,7 +39,7 @@ const team = [
   },
   {
     name: 'Roberto Cinque',
-    role: 'Co-Founder & CTO',
+    role: 'Head of Engineering',
     image: '/images/roberto-cinque.jpg',
     highlights: [
       { icon: Code, text: 'Architect of "Programmed Incompleteness"' },
@@ -72,7 +72,7 @@ export default function TeamSlide() {
 
         {/* Subheadline */}
         <motion.p variants={itemVariants} className="text-sm text-slate-400 mb-6">
-          Co-founders bring complementary strengths in GTM execution and cryptographic engineering.
+          Leadership team brings complementary strengths in GTM execution and cryptographic engineering.
         </motion.p>
 
         {/* Team cards */}
